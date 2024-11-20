@@ -92,7 +92,7 @@ This is the Spring configuration class that:
 ## Project Structure
 
 ```
-src/main/java/cgs/
+src/main/java/app/
 ├── config/
 │   └── WebConfig.java          # Spring configuration
 ├── interceptor/

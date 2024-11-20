@@ -1,4 +1,4 @@
-package cgs.interceptor;  // Your package name
+package app.interceptor;  // Your package name
 
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.HandlerInterceptor;

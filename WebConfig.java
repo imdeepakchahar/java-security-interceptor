@@ -1,4 +1,4 @@
-package cgs.config; // Your package name
+package app.config; // Your package name
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -6,7 +6,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import cgs.interceptor.JavaSecurityInterceptor;
+import app.interceptor.JavaSecurityInterceptor;
 
 /**
  * WebConfig
