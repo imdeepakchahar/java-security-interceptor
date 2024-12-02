@@ -107,14 +107,24 @@ public class JavaSecurityInterceptor implements HandlerInterceptor {
     private boolean validateFileInput(HttpServletRequest request) throws IOException {
         if (request instanceof MultipartHttpServletRequest) {
             MultipartHttpServletRequest multiRequest = (MultipartHttpServletRequest) request;
-
+ 
             java.util.Iterator<String> fileNames = multiRequest.getFileNames();
             while (fileNames.hasNext()) {
-                String fileName = fileNames.next();
-                String fileExtension = getFileExtension(fileName);
+                String fileName = fileNames.next(); 
+                MultipartFile file = multiRequest.getFile(fileName);
 
-                if (!isValidFileExtension(fileExtension)) {
-                    return false;
+                if (file != null && !file.isEmpty()) {
+                    // Get the actual file name
+                    String originalFileName = file.getOriginalFilename();
+                    String fileExtension = getFileExtension(originalFileName);
+
+                    //System.out.println("Field Name: " + fileName);
+                    //System.out.println("Original File Name: " + originalFileName);
+                    //System.out.println("File Extension: " + fileExtension);
+
+                    if (!isValidFileExtension(fileExtension)) {
+                        return false; // Invalid file extension
+                    }
                 }
             }
         }
